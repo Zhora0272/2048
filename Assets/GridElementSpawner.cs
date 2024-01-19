@@ -31,7 +31,7 @@ public class GridElementSpawner : MonoBehaviour
             for (int j = 0; j < _spawnGridCount.y; j++)
             {
                 var item = Instantiate(_spawnObject, _contextMenu);
-                item.transform.localPosition = new Vector3(i, 0, -j) + new Vector3(_spawnGridOffset.x, 0 , _spawnGridOffset.y);
+                item.transform.localPosition = new Vector3(i + _spawnGridOffset.x, 0, j + _spawnGridOffset.y);
                 _spawnObjList.Add(item);
             }
         }

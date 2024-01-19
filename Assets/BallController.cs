@@ -1,18 +1,19 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rb;
+    [FormerlySerializedAs("_rb")] [SerializeField] public Rigidbody Rb;
     [SerializeField] private float _speed;
 
     private void Start()
     {
-        _rb.AddForce(10,0,10 * 3, ForceMode.Impulse);
+        Rb.AddForce(10,0,10 * 3, ForceMode.Impulse);
     }
 
     private void FixedUpdate()
     {
-        Vector3 currentVelocity = _rb.velocity.normalized;
-        _rb.velocity = currentVelocity * _speed;
+        Vector3 currentVelocity = Rb.velocity.normalized;
+        Rb.velocity = currentVelocity * _speed;
     }
 }
